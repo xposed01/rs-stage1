@@ -495,7 +495,7 @@ h5 {
   letter-spacing: 0.06em;
 }
 
-.footer .to-flex {
+.footer .to-flex, .footer a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
