@@ -76,6 +76,10 @@ a {
 }
 
 /*    GLOBAL    */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Georgia', serif;
   color: #fff;
