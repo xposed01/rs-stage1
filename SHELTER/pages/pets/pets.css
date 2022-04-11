@@ -88,20 +88,21 @@ body {
 
 /*   HEADER   */
 .header {
+  height: 120px;
+  background-color: #fff;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #fff;
 }
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 5px 0 22px;
   max-width: 1230px;
 }
 
 .header__container {
-  margin-top: 60px;
+  padding-top: 31px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -120,14 +121,19 @@ body {
   line-height: 110%;
   color: #545454;
   margin: 0 0 10px 0;
+  letter-spacing: 0.06em;
 }
 
 .logo .logo__span {
   font-family: 'Arial';
   font-size: 13px;
   line-height: 15px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
   color: #292929;
+}
+
+.navigation {
+  padding-bottom: 10px;
 }
 
 .navigation ul {
@@ -161,7 +167,18 @@ body {
 }
 
 /*    MAIN    */
-button {
+main {
+  padding-top: 30px;
+  background: #F6F6F6;
+  height: 1342px;
+}
+
+main h3 {
+  padding-top: 50px;
+  text-align: center;
+}
+
+main button {
   margin-top: 42px;
   border: none;
   width: 207px;
@@ -172,14 +189,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+main button:hover {
   -webkit-filter: brightness(105%);
           filter: brightness(105%);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-button a {
+main button a {
   font-family: 'Georgia';
   font-size: 17px;
   line-height: 130%;
@@ -203,17 +220,6 @@ h3 {
   font-size: 35px;
   line-height: 130%;
   letter-spacing: 0.06em;
-}
-
-main {
-  margin-top: 30px;
-  background: #F6F6F6;
-  height: 1342px;
-}
-
-main h3 {
-  padding-top: 80px;
-  text-align: center;
 }
 
 .pets__content {
@@ -264,7 +270,7 @@ main h3 {
 .card__pets .button__pets {
   margin-top: 30px;
   border: none;
-  width: 207px;
+  width: 190px;
   height: 52px;
   border: 2px solid #F1CDB3;
   background: #Fff;
@@ -286,6 +292,13 @@ main h3 {
 
 .card__pets:hover .button__pets {
   background-color: #F1CDB3;
+}
+
+.pets__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
 }
 
 .button__round {
@@ -347,7 +360,8 @@ main h3 {
   letter-spacing: 0.06em;
 }
 
-.footer .to-flex, .footer a {
+.footer .to-flex,
+.footer a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -357,16 +371,29 @@ main h3 {
   gap: 20px;
 }
 
-.footer .mail, .footer .boston {
+.footer .mail,
+.footer .boston {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
 .contacts {
+  padding-top: 16px;
   width: 279px;
 }
 
+.contacts .mail {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .locations {
+  padding-top: 16px;
   width: 302px;
+}
+
+.locations .boston {
+  padding-top: 31px;
+  padding-bottom: 33px;
 }
 /*# sourceMappingURL=pets.css.map */
