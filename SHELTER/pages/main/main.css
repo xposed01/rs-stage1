@@ -89,7 +89,7 @@ body {
 /* HEADER */
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 5px 0 22px;
   max-width: 1230px;
 }
 
@@ -113,13 +113,18 @@ body {
   line-height: 110%;
   color: #F1CDB3;
   margin: 0 0 10px 0;
+  letter-spacing: 0.06em;
 }
 
 .logo .logo__span {
   font-family: 'Arial';
   font-size: 13px;
   line-height: 15px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
+}
+
+.navigation {
+  padding-bottom: 10px;
 }
 
 .navigation ul {
@@ -165,7 +170,7 @@ h2 {
 }
 
 .start .start__box {
-  margin-top: 60px;
+  margin-top: 57px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -209,6 +214,30 @@ button a {
   color: #292929;
 }
 
+.a-btn {
+  padding: 15px 0;
+  display: block;
+  margin-top: 42px;
+  border: none;
+  width: 207px;
+  height: 52px;
+  background: #F1CDB3;
+  border-radius: 100px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  cursor: pointer;
+}
+
+.a-btn:hover {
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 p {
   padding-top: 42px;
   font-family: 'Arial';
@@ -228,16 +257,20 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 120px;
   background-color: #fff;
 }
 
 .about .about__content {
+  padding-top: 15px;
   width: 430px;
 }
 
 .about p {
+  padding-top: 23px;
   color: #4C4C4C;
 }
 
@@ -262,13 +295,14 @@ h3 {
 }
 
 .pets h3 {
+  padding-left: 20px;
   text-align: center;
 }
 
 .pets .button__pets {
   margin-top: 30px;
   border: none;
-  width: 207px;
+  width: 190px;
   height: 52px;
   border: 2px solid #F1CDB3;
   background: #Fff;
@@ -286,14 +320,16 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .button__round {
+  margin-top: 0;
   background-color: inherit;
   width: 52px;
   height: 52px;
@@ -308,10 +344,12 @@ h3 {
 }
 
 .button__round--left {
+  margin-left: 40px;
   background-image: url(../../assets/icons/Arrow.svg);
 }
 
 .button__round--right {
+  margin-right: 20px;
   background-image: url(../../assets/icons/Arrow.svg);
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
@@ -384,7 +422,7 @@ h3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 55px 120px;
+  gap: 0 120px;
 }
 
 .list__help .list__item {
@@ -423,6 +461,10 @@ h3 {
           justify-content: center;
   gap: 30px;
   padding-top: 80px;
+}
+
+.donation .donation-dog {
+  margin-top: 10px;
 }
 
 .donation__content {
@@ -532,16 +574,23 @@ h5 {
   gap: 20px;
 }
 
-.footer .mail, .footer .boston {
+.contacts {
+  padding-top: 16px;
+  width: 279px;
+}
+
+.contacts .mail {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.contacts {
-  width: 279px;
+.locations {
+  padding-top: 16px;
+  width: 302px;
 }
 
-.locations {
-  width: 302px;
+.locations .boston {
+  padding-top: 31px;
+  padding-bottom: 33px;
 }
 /*# sourceMappingURL=main.css.map */
