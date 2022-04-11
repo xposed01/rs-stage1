@@ -64,7 +64,13 @@ body {
     font-size: 15px;
     line-height: 160%;
     color: #545454;
+    &:hover {
+      border-bottom: 3px solid #F1CDB3;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
   }
+
 
   .active-link {
     color: #292929;
@@ -84,6 +90,10 @@ button {
   border-radius: 100px;
   font-size: 17px;
   cursor: pointer;
+  &:hover {
+    filter: brightness(105%);
+    transition: 0.2s;
+  }
 
   a {
     font-family: 'Georgia';
@@ -139,6 +149,9 @@ main {
   width: 270px;
   height: 435px;
   border-radius: 9px;
+  &:hover {
+    transition: 0.3s;
+  }
   
   p {
     padding-top: 42px;

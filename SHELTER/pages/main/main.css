@@ -139,6 +139,13 @@ body {
   color: #CDCDCD;
 }
 
+.navigation a:hover {
+  border-bottom: 3px solid #F1CDB3;
+  padding-bottom: 6px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 .navigation .active-link {
   color: #fff;
   border-bottom: 3px solid #F1CDB3;
@@ -185,6 +192,13 @@ button {
   border-radius: 100px;
   font-size: 17px;
   cursor: pointer;
+}
+
+button:hover {
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 button a {
@@ -320,6 +334,11 @@ h3 {
   border-radius: 9px;
 }
 
+.card__pets:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .card__pets p {
   font-family: 'Georgia';
   font-size: 20px;
@@ -432,6 +451,13 @@ h3 {
 
 .donation__content .credit-card img {
   padding-right: 15px;
+}
+
+.donation__content .credit-card:hover {
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .donation__content h4 {

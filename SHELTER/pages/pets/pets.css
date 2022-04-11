@@ -140,6 +140,13 @@ body {
   color: #545454;
 }
 
+.navigation a:hover {
+  border-bottom: 3px solid #F1CDB3;
+  padding-bottom: 6px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 .navigation .active-link {
   color: #292929;
   border-bottom: 3px solid #F1CDB3;
@@ -156,6 +163,13 @@ button {
   border-radius: 100px;
   font-size: 17px;
   cursor: pointer;
+}
+
+button:hover {
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 button a {
@@ -225,6 +239,11 @@ main h3 {
   width: 270px;
   height: 435px;
   border-radius: 9px;
+}
+
+.card__pets:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .card__pets p {
