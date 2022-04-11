@@ -83,7 +83,7 @@ html {
 body {
   font-family: 'Georgia', serif;
   color: #fff;
-  background: url(/assets/images/gradient.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  background: url(../../assets/images/gradient.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
 /* HEADER */
@@ -308,11 +308,11 @@ h3 {
 }
 
 .button__round--left {
-  background-image: url(/assets/icons/Arrow.svg);
+  background-image: url(../../assets/icons/Arrow.svg);
 }
 
 .button__round--right {
-  background-image: url(/assets/icons/Arrow.svg);
+  background-image: url(../../assets/icons/Arrow.svg);
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
