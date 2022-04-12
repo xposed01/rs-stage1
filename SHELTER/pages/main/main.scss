@@ -91,7 +91,7 @@ h2 {
   height: 728px;
 
   .start__box {
-    margin-top: 57px;
+    margin-top: 56px;
     display: flex;
     justify-content: space-between;
   }
@@ -180,7 +180,7 @@ p {
   }
 
   p {
-    padding-top: 23px;
+    padding-top: 24px;
     color: #4C4C4C;
   }
 }
@@ -213,7 +213,7 @@ h3 {
   .button__pets {
     margin-top: 30px;
     border: none;
-    width: 190px; // !!!
+    width: 187px; // !!!
     height: 52px;
     border: 2px solid #F1CDB3;
     background: #Fff;
@@ -256,6 +256,10 @@ h3 {
   }
 }
 
+.card__wrapp {
+  display: flex;
+  gap: 90px;
+}
 
 .card__pets {
   display: flex;
@@ -356,7 +360,7 @@ h3 {
     width: 349px;
     height: 43px;
     background: #F1CDB3;
-    border-radius: 100px;
+    border-radius: 9px;
     font-size: 17px;
     display: flex;
     align-items: center;
