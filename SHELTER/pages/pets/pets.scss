@@ -229,10 +229,13 @@ h3 {
     color: #CDCDCD;
 
     &:hover {
-      color: #000;
-      border: 2px solid #F1CDB3;
+      background-color: inherit;
+      filter: brightness(100%);
     }
 
+  }
+  &--active {
+    background-color: #F1CDB3;
   }
 }
 

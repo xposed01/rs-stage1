@@ -321,8 +321,13 @@ h3 {
 }
 
 .button__round--incative:hover {
-  color: #000;
-  border: 2px solid #F1CDB3;
+  background-color: inherit;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.button__round--active {
+  background-color: #F1CDB3;
 }
 
 /*   FOOTER    */
