@@ -318,6 +318,7 @@ h3 {
 .button__round--incative {
   border: 2px solid #CDCDCD;
   color: #CDCDCD;
+  cursor: default;
 }
 
 .button__round--incative:hover {
@@ -328,6 +329,12 @@ h3 {
 
 .button__round--active {
   background-color: #F1CDB3;
+  cursor: default;
+}
+
+.button__round--active:hover {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
 }
 
 /*   FOOTER    */

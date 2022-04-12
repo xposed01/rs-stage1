@@ -227,6 +227,7 @@ h3 {
   &--incative {
     border: 2px solid #CDCDCD;
     color: #CDCDCD;
+    cursor: default;
 
     &:hover {
       background-color: inherit;
@@ -236,6 +237,11 @@ h3 {
   }
   &--active {
     background-color: #F1CDB3;
+    cursor: default;
+    
+    &:hover {
+      filter: brightness(100%);
+    }
   }
 }
 
