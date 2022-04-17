@@ -1,5 +1,7 @@
 @import '../../styles/scss/reset';
 @import '../../styles/scss/fonts';
+@import '../../styles/scss/adaptive';
+
 
 /*    GLOBAL    */
 
@@ -20,6 +22,10 @@ body {
   margin: 0 auto;
   padding: 0 5px 0 22px; // !!!
   max-width: 1230px;
+
+  @media (max-width: $tablet) {
+    padding: 0 30px 0 30px;
+  }
 }
 
 .header__container {
@@ -28,6 +34,9 @@ body {
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: $tablet) {
+    margin-top: 30px;
+  }
 }
 
 .logo {
@@ -89,16 +98,37 @@ h2 {
 
 .start {
   height: 728px;
+  @media (max-width: $tablet) {
+    height: 1015px;
+  }
 
   .start__box {
     margin-top: 56px;
     display: flex;
     justify-content: space-between;
+    @media (max-width: $tablet) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    img {
+      margin-top: 100px;
+      width: 569px;
+      height: 593px;
+    }
+    }
   }
 
   .start__content {
     width: 460px;
-    padding-top: 163px;
+    @media (max-width: $tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+
+        align-self: flex-start;
+      }
+    }
   }
 
   p {
@@ -173,6 +203,18 @@ p {
   justify-content: center;
   gap: 120px;
   background-color: #fff;
+  @media (max-width: $tablet) {
+    height: 1048px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+    gap: 0;
+    img {
+      margin-top: 80px;
+      order: 2;
+    }
+  }
+
 
   .about__content {
     padding-top: 15px;
@@ -259,6 +301,12 @@ h3 {
 .card__wrapp {
   display: flex;
   gap: 90px;
+  @media (max-width: $tablet) {
+    gap: 40px;
+    .card__pets:last-child {
+      display: none;
+    }
+  }
 }
 
 .card__pets {
@@ -304,6 +352,9 @@ h3 {
 
 .help {
   height: 611px;
+  @media (max-width: $tablet) {
+    height: 779px;
+  }
 
   h3 {
     padding-top: 80px;
@@ -316,12 +367,21 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0 120px;
+  @media (max-width: $tablet) {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 55px 60px;
+  }
 
   .list__item {
     padding-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: $tablet) {
+      padding-top: 0;
+    }
   }
 
   h4 {
@@ -346,6 +406,16 @@ h3 {
   padding-top: 80px;
   .donation-dog {
     margin-top: 10px;
+  }
+  @media (max-width: $tablet) {
+    justify-content: normal;
+    flex-direction: column;
+    align-items: center;
+    height: 783px;
+    .donation-dog {
+      order: 2;
+      margin-top: 60px;
+    }
   }
 }
 
@@ -415,6 +485,23 @@ h5 {
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: $tablet) {
+    padding-top: 30px;
+    flex-direction: column;
+    height: 639px;
+    align-items: center;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 160px;
+    @media (max-width: $tablet) {
+      justify-content: center;
+      gap: 60px;
+    }
+  }
+
   h3 {
     letter-spacing: 0.06em;
     color: #FFFFFF;
@@ -458,3 +545,5 @@ h5 {
     padding-bottom: 33px;
   }
 }
+
+
