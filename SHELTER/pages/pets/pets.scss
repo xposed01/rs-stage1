@@ -1,6 +1,6 @@
 @import '../../styles/scss/reset';
 @import '../../styles/scss/fonts';
-/* @import '../main/main.scss'; */
+@import '../../styles/scss/adaptive';
 
 
 /*    GLOBAL    */
@@ -28,6 +28,13 @@ body {
   margin: 0 auto;
   padding: 0 5px 0 22px;
   max-width: 1230px;
+  @media (max-width: $tablet) {
+    padding: 0 30px 0 30px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 10px 0 10px;
+  }
 }
 
 .header__container {
@@ -87,6 +94,57 @@ body {
     border-bottom: 3px solid #F1CDB3;
     padding-bottom: 6px;
   }
+
+  @media (max-width: $mobile) {
+    nav {
+      display: none;
+    }
+  }
+  
+  .menu-burger {
+    display: none;
+  
+    @media (max-width: $mobile) {
+      & {
+        display: block;
+        z-index: 15;
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        margin:  7px 43px 0 0;
+      }
+  
+      &::before,
+      &::after,
+      & span {
+        left: 0;
+        height: 10%;
+        width: 100%;
+        position: absolute;
+        transition: all 0.3s ease 0s;
+        background-color: #000;
+      }
+  
+      &::before,
+      &::after {
+        content: '';
+      }
+  
+      &::before {
+        top: 0;
+      }
+  
+      &::after {
+        bottom: 0;
+      }
+  
+      & span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+      }
+    }
+  }
 }
 
 /*    MAIN    */
@@ -99,6 +157,9 @@ main {
   h3 {
     padding-top: 50px;
     text-align: center;
+    @media (max-width: $mobile) {
+      padding-top: 12px;
+    } 
   }
 
   button {
@@ -124,6 +185,13 @@ main {
       color: #292929;
     }
   }
+
+  @media (max-width: $tablet) {
+    height: 1733px;
+  } 
+  @media (max-width: $mobile) {
+    height: 1649px;
+  } 
 }
 
 p {
@@ -142,6 +210,13 @@ h3 {
   font-size: 35px;
   line-height: 130%;
   letter-spacing: 0.06em;
+
+  @media (max-width: $mobile) {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+  }
 }
 
 
@@ -152,6 +227,13 @@ h3 {
   justify-content: space-around;
   align-items: center;
   gap: 30px 40px;
+  @media (max-width: $tablet) {
+    padding-top: 30px;
+    justify-content: center;
+  } 
+  @media (max-width: $mobile) {
+    padding-top: 42px;
+  } 
 }
 
 .card__pets {
@@ -202,11 +284,26 @@ h3 {
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
   }
+
+  @media (max-width: $tablet) {
+    &:nth-last-child(-n+3) {
+      display: none;
+    }
+  } 
+
+  @media (max-width: $mobile) {
+    &:nth-last-child(-n+6) {
+      display: none;
+    }
+  } 
 }
 
 .pets__nav {
   display: flex;
   gap: 20px;
+  @media (max-width: $mobile) {
+    gap: 10px;
+  } 
 }
 
 .button__round {
@@ -243,6 +340,9 @@ h3 {
       filter: brightness(100%);
     }
   }
+  @media (max-width: $tablet) {
+    margin-top: 10px;
+  } 
 }
 
 /*   FOOTER    */
@@ -252,11 +352,51 @@ h3 {
 }
 
 .footer {
-
   padding-top: 40px;
   height: 350px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $tablet) {
+    padding-top: 15px;
+    flex-direction: column;
+    height: 639px;
+    align-items: center;
+  }
+
+  @media (max-width: $mobile) {
+    height: 809px;
+
+    .footer-dog {
+      width: 260px;
+      height: 269px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 130%;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 160px;
+
+    @media (max-width: $tablet) {
+      justify-content: center;
+      gap: 60px;
+    }
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+  }
 
   h3 {
     letter-spacing: 0.06em;
@@ -285,11 +425,6 @@ h3 {
     gap: 20px;
   }
 
-  .mail,
-  .boston {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
 }
 
 .contacts {
@@ -300,14 +435,39 @@ h3 {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .locations {
   padding-top: 16px;
   width: 302px;
 
+
   .boston {
     padding-top: 31px;
     padding-bottom: 33px;
+  }
+
+  @media (max-width: $mobile) {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+
+
+    h3 {
+      text-align: center;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .boston {
+      padding-top: 37px;
+      padding-bottom: 40px;
+    }
   }
 }
