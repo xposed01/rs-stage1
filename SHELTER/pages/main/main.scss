@@ -109,8 +109,9 @@ h2 {
     @media (max-width: $tablet) {
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 56px;
     img {
+      align-self: flex-end;
       margin-top: 100px;
       width: 569px;
       height: 593px;
@@ -125,7 +126,6 @@ h2 {
       flex-direction: column;
       align-items: center;
       h2 {
-
         align-self: flex-start;
       }
     }
@@ -219,6 +219,9 @@ p {
   .about__content {
     padding-top: 15px;
     width: 430px;
+    @media (max-width: $tablet) {
+      padding-top: 0;
+    }
   }
 
   p {
@@ -250,6 +253,9 @@ h3 {
   h3 {
     padding-left: 20px;
     text-align: center;
+    @media (max-width: $tablet) {
+      padding-left: 0;
+    }
   }
 
   .button__pets {
@@ -261,6 +267,13 @@ h3 {
     background: #Fff;
     border-radius: 100px;
     font-size: 17px;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+
     &:hover {
       border: none;
       background: #F1CDB3;
@@ -295,6 +308,15 @@ h3 {
     margin-right: 20px;
     background-image: url(../../assets/icons/Arrow.svg);
     transform: scaleX(-1);
+  }
+  @media (max-width: $tablet) {
+    &--left {
+      margin-left: 30px;
+     
+    }
+    &--right {
+      margin-right: 30px;
+    }
   }
 }
 
@@ -371,7 +393,7 @@ h3 {
     padding-top: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 55px 60px;
+    gap: 55px 0;
   }
 
   .list__item {
@@ -414,7 +436,7 @@ h3 {
     height: 783px;
     .donation-dog {
       order: 2;
-      margin-top: 60px;
+      margin-top: 30px;
     }
   }
 }
@@ -486,7 +508,7 @@ h5 {
   justify-content: space-between;
 
   @media (max-width: $tablet) {
-    padding-top: 30px;
+    padding-top: 15px;
     flex-direction: column;
     height: 639px;
     align-items: center;

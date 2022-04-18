@@ -213,9 +213,11 @@ h2 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 60px;
+    margin-top: 56px;
   }
   .start .start__box img {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
     margin-top: 100px;
     width: 569px;
     height: 593px;
@@ -353,6 +355,12 @@ p {
   width: 430px;
 }
 
+@media (max-width: 1279px) {
+  .about .about__content {
+    padding-top: 0;
+  }
+}
+
 .about p {
   padding-top: 24px;
   color: #4C4C4C;
@@ -383,6 +391,12 @@ h3 {
   text-align: center;
 }
 
+@media (max-width: 1279px) {
+  .pets h3 {
+    padding-left: 0;
+  }
+}
+
 .pets .button__pets {
   margin-top: 30px;
   border: none;
@@ -392,6 +406,12 @@ h3 {
   background: #Fff;
   border-radius: 100px;
   font-size: 17px;
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
 }
 
 .pets .button__pets:hover {
@@ -437,6 +457,15 @@ h3 {
   background-image: url(../../assets/icons/Arrow.svg);
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
+}
+
+@media (max-width: 1279px) {
+  .button__round--left {
+    margin-left: 30px;
+  }
+  .button__round--right {
+    margin-right: 30px;
+  }
 }
 
 .card__wrapp {
@@ -538,7 +567,7 @@ h3 {
     display: grid;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
-    gap: 55px 60px;
+    gap: 55px 0;
   }
 }
 
@@ -608,7 +637,7 @@ h3 {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    margin-top: 60px;
+    margin-top: 30px;
   }
 }
 
@@ -692,7 +721,7 @@ h5 {
 
 @media (max-width: 1279px) {
   .footer {
-    padding-top: 30px;
+    padding-top: 15px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
