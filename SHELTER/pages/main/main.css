@@ -190,24 +190,42 @@ body {
 
 .menu-burger {
   display: none;
-  /*   @media (max-width: $tablet) {
-    z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .menu-burger {
     display: block;
-    position: relative;
+    z-index: 15;
     width: 30px;
     height: 22px;
+    position: relative;
     cursor: pointer;
-
-    span,
-    &::after,
-    &::before {
-      left: 0;
-      position: absolute;
-      height: 10%;
-      transition: all 0.3s ease;
-      background-color: #F1CDB3;
-    }
-  }  */
+    margin: 7px 43px 0 0;
+  }
+  .menu-burger::before, .menu-burger::after,
+  .menu-burger span {
+    left: 0;
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    background-color: #F1CDB3;
+  }
+  .menu-burger::before, .menu-burger::after {
+    content: '';
+  }
+  .menu-burger::before {
+    top: 0;
+  }
+  .menu-burger::after {
+    bottom: 0;
+  }
+  .menu-burger span {
+    top: 50%;
+    -webkit-transform: scale(1) translate(0px, -50%);
+            transform: scale(1) translate(0px, -50%);
+  }
 }
 
 /*    MAIN    */

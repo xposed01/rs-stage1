@@ -102,25 +102,46 @@ body {
 .menu-burger {
   display: none;
 
-  /*   @media (max-width: $tablet) {
-    z-index: 10;
-    display: block;
-    position: relative;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
+  @media (max-width: $mobile) {
+    & {
+      display: block;
+      z-index: 15;
+      width: 30px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+      margin:  7px 43px 0 0;
+    }
 
-    span,
+    &::before,
     &::after,
-    &::before {
+    & span {
       left: 0;
-      position: absolute;
       height: 10%;
-      transition: all 0.3s ease;
+      width: 100%;
+      position: absolute;
+      transition: all 0.3s ease 0s;
       background-color: #F1CDB3;
     }
-  }  */
 
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    & span {
+      top: 50%;
+      transform: scale(1) translate(0px, -50%);
+    }
+  }
 }
 
 /*    MAIN    */
@@ -322,6 +343,7 @@ p {
         padding: 25px 15px 0 15px;
         text-align: justify;
       }
+
       p:last-child {
         padding-top: 20px;
       }
@@ -863,6 +885,7 @@ h5 {
       padding-left: 15px;
       padding-right: 15px;
     }
+
     .boston {
       padding-top: 37px;
       padding-bottom: 40px;
