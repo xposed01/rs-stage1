@@ -301,6 +301,7 @@ h2 {
 
 .start .start__content {
   width: 460px;
+  padding-top: 163px;
 }
 
 @media (max-width: 1279px) {
@@ -315,6 +316,7 @@ h2 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    padding-top: 0;
   }
   .start .start__content h2 {
     -ms-flex-item-align: start;
