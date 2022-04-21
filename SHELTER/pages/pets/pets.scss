@@ -163,7 +163,6 @@ main {
   }
 
   button {
-    margin-top: 42px;
     border: none;
     width: 207px;
     height: 52px;
@@ -189,6 +188,7 @@ main {
   @media (max-width: $tablet) {
     height: 1733px;
   } 
+
   @media (max-width: $mobile) {
     height: 1649px;
   } 
@@ -229,9 +229,15 @@ h3 {
   gap: 30px 40px;
   @media (max-width: $tablet) {
     padding-top: 30px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    margin: 0 64px 0;
   } 
   @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     padding-top: 42px;
   } 
 }
@@ -286,13 +292,13 @@ h3 {
   }
 
   @media (max-width: $tablet) {
-    &:nth-last-child(-n+3) {
+    &:nth-last-child(-n+2) {
       display: none;
     }
   } 
 
   @media (max-width: $mobile) {
-    &:nth-last-child(-n+6) {
+    &:nth-last-child(-n+5) {
       display: none;
     }
   } 
@@ -300,7 +306,13 @@ h3 {
 
 .pets__nav {
   display: flex;
+  justify-content: center;
   gap: 20px;
+  margin-top: 60px;
+  @media (max-width: $tablet) {
+    margin-top: 30px;
+    gap: 20px;
+  } 
   @media (max-width: $mobile) {
     gap: 10px;
   } 
