@@ -94,6 +94,7 @@ body {
 
 /*   HEADER   */
 .header {
+  z-index: 4;
   height: 120px;
   background-color: #fff;
   position: -webkit-sticky;
@@ -184,18 +185,58 @@ body {
   padding-bottom: 6px;
 }
 
-@media (max-width: 767px) {
-  .navigation nav {
-    display: none;
-  }
-}
-
-.navigation .menu-burger {
+.navigation__logo {
   display: none;
 }
 
 @media (max-width: 767px) {
-  .navigation .menu-burger {
+  nav {
+    z-index: 15;
+    position: fixed;
+    width: 320px;
+    height: 100%;
+    overflow: scroll;
+    top: 0;
+    right: -400px;
+    background: #FFFFFF;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .navigation__logo {
+    display: block;
+    z-index: 15;
+    margin: 30px 0 0 10px;
+  }
+  ul {
+    padding-top: 158px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navigation li:not(:last-child) {
+    padding-right: 0;
+    padding-bottom: 40px;
+  }
+  .navigation a {
+    font-size: 32px;
+  }
+}
+
+.menu-burger {
+  display: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 767px) {
+  .menu-burger {
     display: block;
     z-index: 15;
     width: 30px;
@@ -204,8 +245,8 @@ body {
     cursor: pointer;
     margin: 7px 43px 0 0;
   }
-  .navigation .menu-burger::before, .navigation .menu-burger::after,
-  .navigation .menu-burger span {
+  .menu-burger::before, .menu-burger::after,
+  .menu-burger span {
     left: 0;
     height: 10%;
     width: 100%;
@@ -214,16 +255,16 @@ body {
     transition: all 0.3s ease 0s;
     background-color: #000;
   }
-  .navigation .menu-burger::before, .navigation .menu-burger::after {
+  .menu-burger::before, .menu-burger::after {
     content: '';
   }
-  .navigation .menu-burger::before {
+  .menu-burger::before {
     top: 0;
   }
-  .navigation .menu-burger::after {
+  .menu-burger::after {
     bottom: 0;
   }
-  .navigation .menu-burger span {
+  .menu-burger span {
     top: 50%;
     -webkit-transform: scale(1) translate(0px, -50%);
             transform: scale(1) translate(0px, -50%);
@@ -651,5 +692,24 @@ h3 {
     padding-top: 37px;
     padding-bottom: 40px;
   }
+}
+
+._active {
+  right: 0;
+}
+
+._lock {
+  overflow: hidden;
+}
+
+._blackout-active {
+  z-index: 10;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 3000px;
+  background-color: rgba(41, 41, 41, 0.6);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 /*# sourceMappingURL=pets.css.map */
