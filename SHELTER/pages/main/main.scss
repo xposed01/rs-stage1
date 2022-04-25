@@ -951,6 +951,87 @@ h5 {
 }
 
 
+/*     PETS MODAL    */
+
+._modal--active {
+  display: flex;
+}
+
+.pets__modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  height: 500px;
+  width: 900px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9px;
+
+
+  .content {
+    padding: 50px 20px 0 29px;
+    
+  }
+  ul {
+    padding-top: 40px;
+    padding-left: 1em;
+    li::before {
+      content: "•"; color: #F1CDB3;
+      position: absolute;
+      width: 1em;
+      margin-left: -1em;
+      margin-bottom: -1em;
+    }
+    h5 {
+      margin-top: 10px;
+    }
+  }
+
+  .btn-close {
+    position: fixed;
+    right: -8%;
+    top: -5%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../assets/icons/cross.svg);
+    &:hover {
+      background-color: #F1CDB3;
+    }
+
+  }
+}
+
+
+
+.pets__modal {
+  h3 {
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    text-align: start;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+
+  h5 {
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+}
 
 /* CAROUSELE */
 
@@ -959,7 +1040,7 @@ h5 {
   width: 990px;
 
   @media (max-width: $tablet) {
-    width: 580px;
+    width: 670px;
   }
 
   @media (max-width: $mobile) {
@@ -970,20 +1051,27 @@ h5 {
 .carousel {
   display: flex;
   position: relative;
-  left: -990px;
-  
+  left: -1080px;
+  gap: 90px;
+
 
   @media (max-width: $tablet) {
-    left: -580px;
+    left: -670px;
   }
+
   @media (max-width: $mobile) {
     left: -270px;
   }
 }
 
 @keyframes move-left {
-  from {left: -990px}
-  to {left: 0px;}
+  from {
+    left: -1080px
+  }
+
+  to {
+    left: 0px;
+  }
 }
 
 .transition-left {
@@ -992,8 +1080,15 @@ h5 {
 }
 
 @keyframes move-right {
-  from {left: -990px}
-  to {left: -1980px;}
+  from {
+    left: -1080px
+  }
+
+  to {
+    left: -2160px;
+  }
+
+  //-1980
 }
 
 .transition-right {
