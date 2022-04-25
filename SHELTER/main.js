@@ -90,6 +90,36 @@ const petsData = [{
     }
 ]
 
+console.log('Привет! Я успел сделать только меню, рандомную карусель без адаптива, и верстку попапа')
+console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 😭')
+
+// POP-UP
+
+const POPUP = document.querySelector('.pets__modal');
+const cardPets = document.querySelectorAll('.card__pets');
+
+/* function popupAnimation() {
+
+    // menu animation
+    POPUP.classList.toggle('_modal--active');
+    // stop scroll
+    document.querySelector('body').classList.toggle('_lock');
+    // blackout
+    document.querySelector('.blackout').classList.toggle('_blackout-active');
+}
+
+// click events
+cardPets.addEventListener('click', (event) => {
+    if (event.target.closest('.card__pets')) {
+        popupAnimation()
+    }
+});
+
+blackoutWindow.addEventListener('click', popupAnimation); */
+
+
+
+
 
 
 //      CAROUSEL 
@@ -137,10 +167,11 @@ carousel.addEventListener('animationend', (animationEvent) => {
 
 // card generator
 
-const cardPets = document.querySelectorAll('.card__pets');
+
 const cardPetsActive = document.querySelectorAll("#item-active > div > div");
 const cardPetsLeft = document.querySelectorAll("#item-left > div > div");
 const cardPetsRight = document.querySelectorAll("#item-right > div > div");
+const cardWrapp = document.querySelector(".card__wrapp > div");
 
 let randomStack = [];
 let usedStack = [];
@@ -151,7 +182,7 @@ function cardGeneretor() {
     for (let i = 0; i < cardPets.length - 1; i++) {
         randomStack.push(i);
     }
-    console.log(randomStack)
+    
     // zeroing
     for (let i = 0; i < cardPetsActive.length; i++) {
         cardPetsActive[i].innerHTML = '';
@@ -167,7 +198,7 @@ function cardGeneretor() {
     }
 };
 cardGeneretor();
-console.log(randomStack);
+
 
 
 // non-active sections LEFT
