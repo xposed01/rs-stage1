@@ -108,6 +108,7 @@ body {
     background: #292929;
     transition: all 0.5s ease;
   }
+
   .navigation__logo {
     display: block;
     z-index: 15;
@@ -126,11 +127,13 @@ body {
       padding-right: 0;
       padding-bottom: 40px;
     }
+
     a {
       font-size: 32px;
     }
   }
 }
+
 // JavaScript
 ._active {
   right: 0;
@@ -162,7 +165,7 @@ body {
       height: 22px;
       position: relative;
       cursor: pointer;
-      margin:  7px 43px 0 0;
+      margin: 7px 43px 0 0;
     }
 
     &::before,
@@ -945,4 +948,55 @@ h5 {
       padding-bottom: 40px;
     }
   }
+}
+
+
+
+/* CAROUSELE */
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 990px;
+
+  @media (max-width: $tablet) {
+    width: 580px;
+  }
+
+  @media (max-width: $mobile) {
+    width: 270px;
+  }
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  left: -990px;
+  
+
+  @media (max-width: $tablet) {
+    left: -580px;
+  }
+  @media (max-width: $mobile) {
+    left: -270px;
+  }
+}
+
+@keyframes move-left {
+  from {left: -990px}
+  to {left: 0px;}
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 2s;
+}
+
+@keyframes move-right {
+  from {left: -990px}
+  to {left: -1980px;}
+}
+
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 2s;
 }
