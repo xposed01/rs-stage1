@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <div class="blackout-modal"></div>
   <header class="header header--main header--pets">
     <div class="blackout"></div>
     <div class="container header__container">
@@ -45,42 +46,42 @@
       <section class="pets">
         <h3>Our friends who<br>are looking for a house</h3>
         <div class="pets__content">
-          <div class="card__pets">
+          <div class="card__pets" data-id="4">
             <img src="../../assets/images/pets-katrine.png" alt="Katrine-cat">
             <p>Katrine</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="0">
             <img src="../../assets/images/pets-jennifer.png" alt="Jennifer-dog">
             <p>Jennifer</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="2">
             <img src="../../assets/images/pets-woody.png" alt="Woody-dog">
             <p>Woody</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="1">
             <img src="../../assets/images/pets-sophia.png" alt="sophia-dog">
             <p>Sophia</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="5">
             <img src="../../assets/images/pets-timmy.png" alt="timmy-cat">
             <p>Timmy</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="7">
             <img src="../../assets/images/pets-charly.png" alt="charly-dog">
             <p>Charly</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="3">
             <img src="../../assets/images/pets-scarlett.png" alt="scarlett-dog">
             <p>Scarlett</p>
             <button class="button__pets">Learn more</button>
           </div>
-          <div class="card__pets">
+          <div class="card__pets" data-id="6">
             <img src="../../assets/images/pets-freddie.png" alt="freddie-cat">
             <p>Freddie</p>
             <button class="button__pets">Learn more</button>
@@ -139,7 +140,22 @@
       </footer>
     </div>
   </div>
-
+  <div class="pets__modal">
+    <img src="../../assets/images/pets-jennifer.png" width="500" height="500">
+    <div class="content">
+      <h3>Jennifer</h3>
+      <h4>Dog - Labrador</h4>
+      <h5>Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.
+      </h5>
+      <ul class="content-list">
+        <li><h5><b>Age: </b>2 months</h5></li>
+        <li><h5><b>Inoculations: </b>none</h5></li>
+        <li><h5><b>Diseases: </b>none</h5></li>
+        <li><h5><b>Parasites: </b>none</h5></li>
+      </ul>
+    </div>
+    <div class="btn-close button__round"></div>
+  </div>
 <script src="../../pets.js"></script>
 </body>
 
