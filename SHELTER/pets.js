@@ -90,8 +90,64 @@ const petsData = [{
     }
 ]
 
-console.log('Привет! Я успел сделать только меню, рандомную карусель без адаптива, и верстку попапа')
+console.log('Привет! Я успел сделать только меню, рандомную карусель без адаптива, и попап')
 console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 😭')
+
+//     POP-UP
+
+const POPUP = document.querySelector('.pets__modal');
+let cardPetsPopUp = document.querySelector('.pets__content'); //  > .card__wrapp
+let cardPetsPopUpLIVE = cardPetsPopUp.children;
+
+// Modal animation
+function popupAnimation() {
+    // modal on/off
+    let isModalOn = POPUP.style.display === 'flex';
+    POPUP.style.display = isModalOn ? 'none' : 'flex';
+
+    // stop scroll
+    document.querySelector('body').classList.toggle('_lock');
+    // blackout
+    document.querySelector('.blackout-modal').classList.toggle('_blackout-popup-active');
+}
+
+document.querySelector('.blackout-modal').addEventListener('click', popupAnimation);
+
+// Modal events
+
+let popupGenerator = (event) => {
+    // delegation
+    if (event.target.closest('.card__pets')) {
+        popupAnimation();
+    }
+
+    // zeroing
+    POPUP.innerHTML = '';
+
+    // found index
+    let dataID = event.target.closest('.card__pets').getAttribute('data-id');
+    console.log(dataID)
+    // popup generator
+    POPUP.insertAdjacentHTML('afterbegin', `
+        <img src="../../assets/images/${petsData[dataID].img}" width="500" height="500">
+        <div class="content">
+          <h3>${petsData[dataID].name}</h3>
+          <h4>${petsData[dataID].type} - ${petsData[dataID].breed}</h4>
+          <h5>${petsData[dataID].description}</h5>
+          <ul class="content-list">
+            <li><h5><b>Age: </b>${petsData[dataID].age}</h5></li>
+            <li><h5><b>Inoculations: </b>${petsData[dataID].inoculations}</h5></li>
+            <li><h5><b>Diseases: </b>${petsData[dataID].diseases}</h5></li>
+            <li><h5><b>Parasites: </b>${petsData[dataID].parasites}</h5></li>
+          </ul>
+        </div>
+        <div class="btn-close button__round"></div>`);
+};
+
+cardPetsPopUp.addEventListener('click', popupGenerator);
+
+
+
 
 //       BURGER-MENU
 
@@ -119,7 +175,19 @@ function menuEvents() {
     headerOurPets.style.position = isHeaderSticky ? 'none' : 'sticky';
 }
 
+function menuEventsOff() {
+    // burger animation
+    const is90deg = (menuBurger.style.transform === 'rotate(90deg)');
+    menuBurger.style.transform = is90deg ? 'rotate(0deg)' : 'rotate(90deg)';
+    // menu animation
+    navigation.classList.remove('_active');
+    // stop scroll
+    document.querySelector('body').classList.remove('_lock');
+    // blackout
+    document.querySelector('.blackout').classList.remove('_blackout-active');
+}
+
 // click events
 menuBurger.addEventListener('click', menuEvents);
-navLinks.addEventListener('click', menuEvents);
 blackoutWindow.addEventListener('click', menuEvents);
+navLinks.addEventListener('click', menuEventsOff);
