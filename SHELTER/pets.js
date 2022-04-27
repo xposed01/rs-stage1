@@ -90,8 +90,259 @@ const petsData = [{
     }
 ]
 
-console.log('Привет! Я успел сделать только меню, рандомную карусель без адаптива, и попап')
-console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 😭')
+console.log('Привет! Я успел сделать меню, рандомную карусель без адаптива, попап без адаптива и пагинацию без адаптива');
+console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 😭');
+
+
+//        PAGINATION
+
+
+// RANDOM CARD GENERATOR
+
+const cardPets = document.querySelectorAll('.card__pets');
+const cardPetsActive = document.querySelectorAll('.card__pets');
+const btnCount = document.querySelector('#btn-count');
+const btnNext = document.querySelector('#btn-next');
+const btnPrev = document.querySelector('#btn-prev');
+const btnLast = document.querySelector('#btn-last');
+const btnFirst = document.querySelector('#btn-first');
+
+
+
+let randomStack = [];
+let arrayPets = [];
+let newArrayPets = [];
+let random = 0;
+let countPage = 1;
+
+// random array PETS generator
+function randomGenerator() {
+    // random generator
+    for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < cardPets.length; i++) {
+            randomStack.push(i);
+        }
+        for (let i = 0; i < cardPets.length; i++) {
+            random = randomStack.splice(Math.random() * (randomStack.length), 1)[0];
+            arrayPets.push(random);
+        }
+    }
+}
+
+// page counter
+function showCount(value) {
+    if (countPage >= 1 && countPage < 6 && value == 'next') {
+        btnCount.innerHTML++;
+        countPage = btnCount.innerHTML;
+    }
+    if (countPage >= 2 && countPage <= 6 && value == 'prev') {
+        btnCount.innerHTML--;
+        countPage = btnCount.innerHTML;
+    }
+    if (value == 'last') {
+        btnCount.innerHTML = 6;
+        countPage = btnCount.innerHTML;
+    }
+    if (value == 'first') {
+        btnCount.innerHTML = 1;
+        countPage = btnCount.innerHTML;
+    }
+}
+
+// BTN NEXT >
+function showNext() {
+    showCount('next');
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+    // сброс массива
+    newArrayPets = [];
+
+    if (countPage == 2) {
+        newArrayPets = arrayPets.slice(8, 16); // 0, 9 +8
+    }
+    if (countPage == 3) {
+        newArrayPets = arrayPets.slice(16, 24);
+    }
+    if (countPage == 4) {
+        newArrayPets = arrayPets.slice(24, 32);
+    }
+    if (countPage == 5) {
+        newArrayPets = arrayPets.slice(32, 40);
+    }
+    if (countPage == 6) {
+        newArrayPets = arrayPets.slice(40, 48);
+    }
+    // BTN next stop active
+    if (countPage == 6) {
+        btnNext.classList.add('button__round--incative');
+    }
+
+    // BTN prev active
+    if (countPage > 1) {
+        btnPrev.classList.remove('button__round--incative');
+    }
+    // BTN first active
+    if (countPage > 1) {
+        btnFirst.classList.remove('button__round--incative');
+    }
+
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[newArrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = newArrayPets[i];
+    }
+};
+btnNext.addEventListener('click', showNext);
+
+// BTN LAST >>
+function showLast() {
+    showCount('last');
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+    // сброс массива
+    newArrayPets = [];
+
+    newArrayPets = arrayPets.slice(40, 48);
+
+
+    // BTN ADD ACTIVE
+    btnFirst.classList.remove('button__round--incative');
+    btnPrev.classList.remove('button__round--incative');
+    // BTNs STOP ACTIVE
+    btnNext.classList.add('button__round--incative');
+    btnLast.classList.add('button__round--incative');
+
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[newArrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = newArrayPets[i];
+    }
+};
+btnLast.addEventListener('click', showLast);
+
+// BTN PREV <
+function showPrev() {
+
+    // counter page
+    showCount('prev');
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+    // сброс массива
+    newArrayPets = [];
+
+    if (countPage == 1) {
+        newArrayPets = arrayPets.slice(0, 8); // 0, 9 +8
+    }
+    if (countPage == 2) {
+        newArrayPets = arrayPets.slice(8, 16); // 0, 9 +8
+    }
+    if (countPage == 3) {
+        newArrayPets = arrayPets.slice(16, 24);
+    }
+    if (countPage == 4) {
+        newArrayPets = arrayPets.slice(24, 32);
+    }
+    if (countPage == 5) {
+        newArrayPets = arrayPets.slice(32, 40);
+    }
+    if (countPage == 6) {
+        newArrayPets = arrayPets.slice(40, 48);
+    }
+    // BTN  stop active
+    if (countPage < 6) {
+        btnNext.classList.remove('button__round--incative');
+    }
+    
+    // BTN add active
+    if (countPage == 1) {
+        btnPrev.classList.add('button__round--incative');
+    }
+    if (countPage == 1) {
+        btnFirst.classList.add('button__round--incative');
+    }
+    if (countPage < 6) {
+        btnLast.classList.remove('button__round--incative');
+    }
+
+
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[newArrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = newArrayPets[i];
+    }
+};
+btnPrev.addEventListener('click', showPrev);
+
+// BTN FIRST <<
+
+function showFirst() {
+    showCount('first');
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+    // сброс массива
+    newArrayPets = [];
+
+    newArrayPets = arrayPets.slice(0, 8);
+
+
+    // BTN ADD ACTIVE
+    btnNext.classList.remove('button__round--incative');
+    btnLast.classList.remove('button__round--incative');
+    // BTNs STOP ACTIVE
+    btnPrev.classList.add('button__round--incative');
+    btnFirst.classList.add('button__round--incative');
+  
+
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[newArrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = newArrayPets[i];
+    }
+};
+btnFirst.addEventListener('click', showFirst);
+
+// generator ON-LOAD section
+function cardGeneretor() {
+    // random generator
+    randomGenerator()
+
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[arrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[arrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = arrayPets[i];
+    }
+};
+cardGeneretor();
+
+
 
 //     POP-UP
 
