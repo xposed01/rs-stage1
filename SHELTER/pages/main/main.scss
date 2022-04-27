@@ -1008,6 +1008,7 @@ h5 {
   }
 
   .btn-close {
+    z-index: 20;
     position: fixed;
     right: -8%;
     top: -5%;
@@ -1113,4 +1114,9 @@ h5 {
 .transition-right {
   animation-name: move-right;
   animation-duration: 2s;
+}
+
+.js-hover {
+  background-color: #F1CDB3 !important;
+  transition: 0.3s;
 }
