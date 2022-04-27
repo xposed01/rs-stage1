@@ -94,6 +94,10 @@ body {
   background: url(../../assets/images/gradient.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
+button {
+  color: #000000;
+}
+
 /* HEADER */
 .container {
   margin: 0 auto;
@@ -374,6 +378,18 @@ h2 {
   .start .start__box img {
     width: 260px;
     height: 271.77px;
+    margin-top: 153px;
+  }
+}
+
+@media (max-width: 578px) {
+  .start .start__box img {
+    margin-top: 129px;
+  }
+}
+
+@media (max-width: 387px) {
+  .start .start__box img {
     margin-top: 105px;
   }
 }
@@ -1311,6 +1327,70 @@ h5 {
   line-height: 110%;
   letter-spacing: 0.06em;
   color: #000000;
+}
+
+@media (max-width: 1279px) {
+  .pets__modal {
+    height: auto;
+    width: 630px;
+  }
+  .pets__modal img {
+    width: 350px;
+    height: 350px;
+  }
+  .pets__modal .content {
+    padding: 10px 9px 0 11px;
+  }
+  .pets__modal ul {
+    padding-top: 10px;
+  }
+  .pets__modal h4 {
+    padding-bottom: 10px;
+  }
+  .pets__modal h5 {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+  }
+  .pets__modal .btn-close {
+    right: -11%;
+    top: -8%;
+  }
+}
+
+@media (max-width: 767px) {
+  .pets__modal {
+    height: auto;
+    width: 240px;
+  }
+  .pets__modal img {
+    display: none;
+  }
+  .pets__modal .content {
+    padding: 10px 10px 10px 10px;
+  }
+  .pets__modal ul {
+    padding-top: 10px;
+  }
+  .pets__modal h3 {
+    text-align: center;
+  }
+  .pets__modal h4 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .pets__modal h5 {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    text-align: justify;
+  }
+  .pets__modal .btn-close {
+    right: -26%;
+    top: -14%;
+  }
 }
 
 /* CAROUSELE */
