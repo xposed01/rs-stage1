@@ -94,6 +94,10 @@ body {
   background: url(../../assets/images/gradient.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
+button {
+  color: #000000;
+}
+
 /* HEADER */
 .container {
   margin: 0 auto;
@@ -374,6 +378,18 @@ h2 {
   .start .start__box img {
     width: 260px;
     height: 271.77px;
+    margin-top: 153px;
+  }
+}
+
+@media (max-width: 578px) {
+  .start .start__box img {
+    margin-top: 129px;
+  }
+}
+
+@media (max-width: 387px) {
+  .start .start__box img {
     margin-top: 105px;
   }
 }

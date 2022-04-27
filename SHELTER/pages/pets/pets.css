@@ -93,6 +93,10 @@ body {
   background-color: #fff;
 }
 
+button {
+  color: #000000;
+}
+
 /*   HEADER   */
 .header {
   z-index: 4;
