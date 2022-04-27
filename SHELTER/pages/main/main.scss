@@ -166,6 +166,7 @@ body {
   height: 100vh;
   background-color: rgba(41, 41, 41, 0.6);
   transition: all 0.2s ease;
+
   &:hover {
     cursor: pointer;
   }
@@ -503,6 +504,10 @@ h3 {
   justify-content: space-between; // !!!
   align-items: center;
 
+  @media (max-width: $tablet) {
+    justify-content: space-around;
+  }
+
   @media (max-width: $mobile) {
     padding-top: 42px;
     display: grid;
@@ -528,23 +533,23 @@ h3 {
   }
 
   &--left {
-    margin-left: 40px;
+    /* margin-left: 40px; */
     background-image: url(../../assets/icons/Arrow.svg);
   }
 
   &--right {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     background-image: url(../../assets/icons/Arrow.svg);
     transform: scaleX(-1);
   }
 
   @media (max-width: $tablet) {
     &--left {
-      margin-left: 30px;
+      /* margin-left: 30px; */
     }
 
     &--right {
-      margin-right: 30px;
+      /* margin-right: 30px; */
     }
   }
 
@@ -554,13 +559,19 @@ h3 {
 
     &--left {
       grid-area: B;
-      justify-self: center;
+      /* justify-self: center; */
+      position: relative;
+      left: 94px;
+      bottom: 1px;
 
     }
 
     &--right {
       grid-area: C;
-      justify-self: center;
+      /* justify-self: center; */
+      position: relative;
+      left: -94px;
+      bottom: 1px;
     }
   }
 }
@@ -990,18 +1001,22 @@ h5 {
 
   .content {
     padding: 50px 20px 0 29px;
-    
+
   }
+
   ul {
     padding-top: 40px;
     padding-left: 1em;
+
     li::before {
-      content: "•"; color: #F1CDB3;
+      content: "•";
+      color: #F1CDB3;
       position: absolute;
       width: 1em;
       margin-left: -1em;
       margin-bottom: -1em;
     }
+
     h5 {
       margin-top: 10px;
     }
@@ -1017,6 +1032,7 @@ h5 {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../assets/icons/cross.svg);
+
     &:hover {
       background-color: #F1CDB3;
       cursor: pointer;
@@ -1064,7 +1080,7 @@ h5 {
   }
 
   @media (max-width: $mobile) {
-    width: 270px;
+    width: 320px;
   }
 }
 
@@ -1076,11 +1092,11 @@ h5 {
 
 
   @media (max-width: $tablet) {
-    left: -670px;
+    left: -620px; //670
   }
 
   @media (max-width: $mobile) {
-    left: -270px;
+    left: -310px;
   }
 }
 
@@ -1096,26 +1112,68 @@ h5 {
 
 .transition-left {
   animation-name: move-left;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes move-right {
   from {
     left: -1080px
   }
-
   to {
     left: -2160px;
   }
-
-  //-1980
 }
 
 .transition-right {
   animation-name: move-right;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
+@media (max-width: $tablet) {
+  @keyframes move-left {
+    from {
+      left: -620px;
+    }
+
+    to {
+      left: 50px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -620px;
+    }
+
+    to {
+      left: -1290px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  @keyframes move-left {
+    from {
+      left: -310px;
+    }
+
+    to {
+      left: 50px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -310px;
+    }
+
+    to {
+      left: -670px;
+    }
+  }
+}
+
+
+
+// BUG FIX
 .js-hover {
   background-color: #F1CDB3 !important;
   transition: 0.3s;
