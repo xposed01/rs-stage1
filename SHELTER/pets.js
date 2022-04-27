@@ -90,8 +90,8 @@ const petsData = [{
     }
 ]
 
-/* console.log('Привет! Я успел сделать меню, рандомную карусель без адаптива, попап без адаптива и пагинацию без адаптива');
-console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 28 числа 😭'); */
+console.log('Привет! Я успел сделать меню, рандомную карусель без адаптива, попап без адаптива и пагинацию с адаптивом');
+console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 28 числа 😭');
 
 
 //        PAGINATION
@@ -190,52 +190,52 @@ function showNext() {
     }
     // сброс массива
     newArrayPets = [];
-    
+
     // У меня была автоматизация, но я словил баг, который долго не мог исправить, поэтому тут будет ОЧЕНЬ много однотипного кода
     if (countPage == 2) {
-        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage*2); 
+        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage * 2);
     }
     if (countPage == 3) {
-        newArrayPets = arrayPets.slice(elemOnPage*2, elemOnPage*3);
+        newArrayPets = arrayPets.slice(elemOnPage * 2, elemOnPage * 3);
     }
     if (countPage == 4) {
-        newArrayPets = arrayPets.slice(elemOnPage*3, elemOnPage*4);
+        newArrayPets = arrayPets.slice(elemOnPage * 3, elemOnPage * 4);
     }
     if (countPage == 5) {
-        newArrayPets = arrayPets.slice(elemOnPage*4, elemOnPage*5);
+        newArrayPets = arrayPets.slice(elemOnPage * 4, elemOnPage * 5);
     }
     if (countPage == 6) {
-        newArrayPets = arrayPets.slice(elemOnPage*5, elemOnPage*6);
+        newArrayPets = arrayPets.slice(elemOnPage * 5, elemOnPage * 6);
     }
     if (countPage == 7) {
-        newArrayPets = arrayPets.slice(elemOnPage*6, elemOnPage*7); 
+        newArrayPets = arrayPets.slice(elemOnPage * 6, elemOnPage * 7);
     }
     if (countPage == 8) {
-        newArrayPets = arrayPets.slice(elemOnPage*7, elemOnPage*8);
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
     }
     if (countPage == 9) {
-        newArrayPets = arrayPets.slice(elemOnPage*8, elemOnPage*9);
+        newArrayPets = arrayPets.slice(elemOnPage * 8, elemOnPage * 9);
     }
     if (countPage == 10) {
-        newArrayPets = arrayPets.slice(elemOnPage*9, elemOnPage*10);
+        newArrayPets = arrayPets.slice(elemOnPage * 9, elemOnPage * 10);
     }
     if (countPage == 11) {
-        newArrayPets = arrayPets.slice(elemOnPage*10, elemOnPage*11);
+        newArrayPets = arrayPets.slice(elemOnPage * 10, elemOnPage * 11);
     }
     if (countPage == 12) {
-        newArrayPets = arrayPets.slice(elemOnPage*11, elemOnPage*12); 
+        newArrayPets = arrayPets.slice(elemOnPage * 11, elemOnPage * 12);
     }
     if (countPage == 13) {
-        newArrayPets = arrayPets.slice(elemOnPage*12, elemOnPage*13);
+        newArrayPets = arrayPets.slice(elemOnPage * 12, elemOnPage * 13);
     }
     if (countPage == 14) {
-        newArrayPets = arrayPets.slice(elemOnPage*13, elemOnPage*14);
+        newArrayPets = arrayPets.slice(elemOnPage * 13, elemOnPage * 14);
     }
     if (countPage == 15) {
-        newArrayPets = arrayPets.slice(elemOnPage*14, elemOnPage*15);
+        newArrayPets = arrayPets.slice(elemOnPage * 14, elemOnPage * 15);
     }
     if (countPage == 16) {
-        newArrayPets = arrayPets.slice(elemOnPage*15, elemOnPage*16);
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
     }
 
 
@@ -272,13 +272,20 @@ btnNext.addEventListener('click', showNext);
 function showLast() {
     showCount('last');
     // zeroing
-    for (let i = 0; i < cardPetsActive.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
         cardPetsActive[i].innerHTML = '';
     }
     // сброс массива
     newArrayPets = [];
-
-    newArrayPets = arrayPets.slice(40, 48);
+    if (maxPages == 6) {
+        newArrayPets = arrayPets.slice(40, 48);
+    }
+    if (maxPages == 8) {
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
+    }
+    if (maxPages == 16) {
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
+    }
 
 
     // BTN ADD ACTIVE
@@ -289,7 +296,7 @@ function showLast() {
     btnLast.classList.add('button__round--incative');
 
     // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
 
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
@@ -313,59 +320,59 @@ function showPrev() {
 
     // У меня была автоматизация, но я словил баг, который долго не мог исправить, поэтому тут будет ОЧЕНЬ много однотипного кода
     if (countPage == 1) {
-        newArrayPets = arrayPets.slice(0, elemOnPage); 
+        newArrayPets = arrayPets.slice(0, elemOnPage);
     }
     if (countPage == 2) {
-        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage*2); 
+        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage * 2);
     }
     if (countPage == 3) {
-        newArrayPets = arrayPets.slice(elemOnPage*2, elemOnPage*3);
+        newArrayPets = arrayPets.slice(elemOnPage * 2, elemOnPage * 3);
     }
     if (countPage == 4) {
-        newArrayPets = arrayPets.slice(elemOnPage*3, elemOnPage*4);
+        newArrayPets = arrayPets.slice(elemOnPage * 3, elemOnPage * 4);
     }
     if (countPage == 5) {
-        newArrayPets = arrayPets.slice(elemOnPage*4, elemOnPage*5);
+        newArrayPets = arrayPets.slice(elemOnPage * 4, elemOnPage * 5);
     }
     if (countPage == 6) {
-        newArrayPets = arrayPets.slice(elemOnPage*5, elemOnPage*6);
+        newArrayPets = arrayPets.slice(elemOnPage * 5, elemOnPage * 6);
     }
     if (countPage == 7) {
-        newArrayPets = arrayPets.slice(elemOnPage*6, elemOnPage*7); 
+        newArrayPets = arrayPets.slice(elemOnPage * 6, elemOnPage * 7);
     }
     if (countPage == 8) {
-        newArrayPets = arrayPets.slice(elemOnPage*7, elemOnPage*8);
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
     }
     if (countPage == 9) {
-        newArrayPets = arrayPets.slice(elemOnPage*8, elemOnPage*9);
+        newArrayPets = arrayPets.slice(elemOnPage * 8, elemOnPage * 9);
     }
     if (countPage == 10) {
-        newArrayPets = arrayPets.slice(elemOnPage*9, elemOnPage*10);
+        newArrayPets = arrayPets.slice(elemOnPage * 9, elemOnPage * 10);
     }
     if (countPage == 11) {
-        newArrayPets = arrayPets.slice(elemOnPage*10, elemOnPage*11);
+        newArrayPets = arrayPets.slice(elemOnPage * 10, elemOnPage * 11);
     }
     if (countPage == 12) {
-        newArrayPets = arrayPets.slice(elemOnPage*11, elemOnPage*12); 
+        newArrayPets = arrayPets.slice(elemOnPage * 11, elemOnPage * 12);
     }
     if (countPage == 13) {
-        newArrayPets = arrayPets.slice(elemOnPage*12, elemOnPage*13);
+        newArrayPets = arrayPets.slice(elemOnPage * 12, elemOnPage * 13);
     }
     if (countPage == 14) {
-        newArrayPets = arrayPets.slice(elemOnPage*13, elemOnPage*14);
+        newArrayPets = arrayPets.slice(elemOnPage * 13, elemOnPage * 14);
     }
     if (countPage == 15) {
-        newArrayPets = arrayPets.slice(elemOnPage*14, elemOnPage*15);
+        newArrayPets = arrayPets.slice(elemOnPage * 14, elemOnPage * 15);
     }
     if (countPage == 16) {
-        newArrayPets = arrayPets.slice(elemOnPage*15, elemOnPage*16);
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
     }
 
     // BTN  stop active
-    if (countPage < 6) {
+    if (countPage < maxPages) {
         btnNext.classList.remove('button__round--incative');
     }
-    
+
     // BTN add active
     if (countPage == 1) {
         btnPrev.classList.add('button__round--incative');
@@ -373,13 +380,13 @@ function showPrev() {
     if (countPage == 1) {
         btnFirst.classList.add('button__round--incative');
     }
-    if (countPage < 6) {
+    if (countPage < maxPages) {
         btnLast.classList.remove('button__round--incative');
     }
 
 
     // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
 
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
@@ -409,7 +416,7 @@ function showFirst() {
     // BTNs STOP ACTIVE
     btnPrev.classList.add('button__round--incative');
     btnFirst.classList.add('button__round--incative');
-  
+
 
     // card content generator
     for (let i = 0; i < cardPets.length; i++) {
