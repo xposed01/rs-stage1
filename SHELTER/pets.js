@@ -90,7 +90,7 @@ const petsData = [{
     }
 ]
 
-console.log('Привет! Я успел сделать меню, рандомную карусель без адаптива, попап без адаптива и пагинацию без адаптива');
+console.log('Привет! Я успел сделать меню, рандомную карусель без адаптива, попап без адаптива и пагинацию с адаптивом');
 console.log('Буду признателен, если дадите еще время до дедлайна кросс-чека 28 числа 😭');
 
 
@@ -107,75 +107,141 @@ const btnPrev = document.querySelector('#btn-prev');
 const btnLast = document.querySelector('#btn-last');
 const btnFirst = document.querySelector('#btn-first');
 
-
-
 let randomStack = [];
 let arrayPets = [];
 let newArrayPets = [];
 let random = 0;
-let countPage = 1;
 
-// random array PETS generator
+let countPage = 1;
+let countPageFIX = 1;
+let maxPages = 6;
+let elemOnPage = 8;
+
+
+// ADAPTIVE
+if (window.innerWidth <= 1279) {
+    maxPages = 8;
+    elemOnPage = 6;
+}
+if (window.innerWidth <= 767) {
+    maxPages = 16;
+    elemOnPage = 3;
+}
+
+// random PETS generator ARR
 function randomGenerator() {
     // random generator
-    for (let i = 0; i < 6; i++) {
-        for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < maxPages; i++) {
+        for (let i = 0; i < elemOnPage; i++) {
             randomStack.push(i);
         }
-        for (let i = 0; i < cardPets.length; i++) {
+        for (let i = 0; i < elemOnPage; i++) {
             random = randomStack.splice(Math.random() * (randomStack.length), 1)[0];
             arrayPets.push(random);
         }
     }
 }
 
+// generator ON-LOAD section
+function cardGeneretor() {
+    // random generator
+    randomGenerator();
+    // zeroing
+    for (let i = 0; i < cardPetsActive.length; i++) {
+        cardPetsActive[i].innerHTML = '';
+    }
+    // card content generator
+    for (let i = 0; i < cardPets.length; i++) {
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[arrayPets[i]].name}</p>`);
+        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[arrayPets[i]].img}">`);
+        cardPetsActive[i].dataset.id = arrayPets[i];
+    }
+};
+cardGeneretor();
+
 // page counter
 function showCount(value) {
-    if (countPage >= 1 && countPage < 6 && value == 'next') {
+    if (countPage >= 1 && countPage < maxPages && value == 'next') {
         btnCount.innerHTML++;
-        countPage = btnCount.innerHTML;
+        countPage = parseInt(btnCount.innerHTML);
     }
-    if (countPage >= 2 && countPage <= 6 && value == 'prev') {
+    if (countPage >= 2 && countPage <= maxPages && value == 'prev') {
         btnCount.innerHTML--;
-        countPage = btnCount.innerHTML;
+        countPage = parseInt(btnCount.innerHTML);
     }
     if (value == 'last') {
-        btnCount.innerHTML = 6;
-        countPage = btnCount.innerHTML;
+        btnCount.innerHTML = maxPages;
+        countPage = parseInt(btnCount.innerHTML);
     }
     if (value == 'first') {
         btnCount.innerHTML = 1;
-        countPage = btnCount.innerHTML;
+        countPage = parseInt(btnCount.innerHTML);
     }
 }
 
 // BTN NEXT >
 function showNext() {
     showCount('next');
+
     // zeroing
-    for (let i = 0; i < cardPetsActive.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
         cardPetsActive[i].innerHTML = '';
     }
     // сброс массива
     newArrayPets = [];
 
+    // У меня была автоматизация, но я словил баг, который долго не мог исправить, поэтому тут будет ОЧЕНЬ много однотипного кода
     if (countPage == 2) {
-        newArrayPets = arrayPets.slice(8, 16); // 0, 9 +8
+        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage * 2);
     }
     if (countPage == 3) {
-        newArrayPets = arrayPets.slice(16, 24);
+        newArrayPets = arrayPets.slice(elemOnPage * 2, elemOnPage * 3);
     }
     if (countPage == 4) {
-        newArrayPets = arrayPets.slice(24, 32);
+        newArrayPets = arrayPets.slice(elemOnPage * 3, elemOnPage * 4);
     }
     if (countPage == 5) {
-        newArrayPets = arrayPets.slice(32, 40);
+        newArrayPets = arrayPets.slice(elemOnPage * 4, elemOnPage * 5);
     }
     if (countPage == 6) {
-        newArrayPets = arrayPets.slice(40, 48);
+        newArrayPets = arrayPets.slice(elemOnPage * 5, elemOnPage * 6);
     }
+    if (countPage == 7) {
+        newArrayPets = arrayPets.slice(elemOnPage * 6, elemOnPage * 7);
+    }
+    if (countPage == 8) {
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
+    }
+    if (countPage == 9) {
+        newArrayPets = arrayPets.slice(elemOnPage * 8, elemOnPage * 9);
+    }
+    if (countPage == 10) {
+        newArrayPets = arrayPets.slice(elemOnPage * 9, elemOnPage * 10);
+    }
+    if (countPage == 11) {
+        newArrayPets = arrayPets.slice(elemOnPage * 10, elemOnPage * 11);
+    }
+    if (countPage == 12) {
+        newArrayPets = arrayPets.slice(elemOnPage * 11, elemOnPage * 12);
+    }
+    if (countPage == 13) {
+        newArrayPets = arrayPets.slice(elemOnPage * 12, elemOnPage * 13);
+    }
+    if (countPage == 14) {
+        newArrayPets = arrayPets.slice(elemOnPage * 13, elemOnPage * 14);
+    }
+    if (countPage == 15) {
+        newArrayPets = arrayPets.slice(elemOnPage * 14, elemOnPage * 15);
+    }
+    if (countPage == 16) {
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
+    }
+
+
+
     // BTN next stop active
-    if (countPage == 6) {
+    if (countPage == maxPages) {
         btnNext.classList.add('button__round--incative');
     }
 
@@ -187,12 +253,12 @@ function showNext() {
     if (countPage > 1) {
         btnFirst.classList.remove('button__round--incative');
     }
-    if (countPage == 6) {
+    if (countPage == maxPages) {
         btnLast.classList.add('button__round--incative');
     }
 
     // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
 
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
@@ -206,13 +272,20 @@ btnNext.addEventListener('click', showNext);
 function showLast() {
     showCount('last');
     // zeroing
-    for (let i = 0; i < cardPetsActive.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
         cardPetsActive[i].innerHTML = '';
     }
     // сброс массива
     newArrayPets = [];
-
-    newArrayPets = arrayPets.slice(40, 48);
+    if (maxPages == 6) {
+        newArrayPets = arrayPets.slice(40, 48);
+    }
+    if (maxPages == 8) {
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
+    }
+    if (maxPages == 16) {
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
+    }
 
 
     // BTN ADD ACTIVE
@@ -223,7 +296,7 @@ function showLast() {
     btnLast.classList.add('button__round--incative');
 
     // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
 
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
@@ -245,29 +318,61 @@ function showPrev() {
     // сброс массива
     newArrayPets = [];
 
+    // У меня была автоматизация, но я словил баг, который долго не мог исправить, поэтому тут будет ОЧЕНЬ много однотипного кода
     if (countPage == 1) {
-        newArrayPets = arrayPets.slice(0, 8); // 0, 9 +8
+        newArrayPets = arrayPets.slice(0, elemOnPage);
     }
     if (countPage == 2) {
-        newArrayPets = arrayPets.slice(8, 16); // 0, 9 +8
+        newArrayPets = arrayPets.slice(elemOnPage, elemOnPage * 2);
     }
     if (countPage == 3) {
-        newArrayPets = arrayPets.slice(16, 24);
+        newArrayPets = arrayPets.slice(elemOnPage * 2, elemOnPage * 3);
     }
     if (countPage == 4) {
-        newArrayPets = arrayPets.slice(24, 32);
+        newArrayPets = arrayPets.slice(elemOnPage * 3, elemOnPage * 4);
     }
     if (countPage == 5) {
-        newArrayPets = arrayPets.slice(32, 40);
+        newArrayPets = arrayPets.slice(elemOnPage * 4, elemOnPage * 5);
     }
     if (countPage == 6) {
-        newArrayPets = arrayPets.slice(40, 48);
+        newArrayPets = arrayPets.slice(elemOnPage * 5, elemOnPage * 6);
     }
+    if (countPage == 7) {
+        newArrayPets = arrayPets.slice(elemOnPage * 6, elemOnPage * 7);
+    }
+    if (countPage == 8) {
+        newArrayPets = arrayPets.slice(elemOnPage * 7, elemOnPage * 8);
+    }
+    if (countPage == 9) {
+        newArrayPets = arrayPets.slice(elemOnPage * 8, elemOnPage * 9);
+    }
+    if (countPage == 10) {
+        newArrayPets = arrayPets.slice(elemOnPage * 9, elemOnPage * 10);
+    }
+    if (countPage == 11) {
+        newArrayPets = arrayPets.slice(elemOnPage * 10, elemOnPage * 11);
+    }
+    if (countPage == 12) {
+        newArrayPets = arrayPets.slice(elemOnPage * 11, elemOnPage * 12);
+    }
+    if (countPage == 13) {
+        newArrayPets = arrayPets.slice(elemOnPage * 12, elemOnPage * 13);
+    }
+    if (countPage == 14) {
+        newArrayPets = arrayPets.slice(elemOnPage * 13, elemOnPage * 14);
+    }
+    if (countPage == 15) {
+        newArrayPets = arrayPets.slice(elemOnPage * 14, elemOnPage * 15);
+    }
+    if (countPage == 16) {
+        newArrayPets = arrayPets.slice(elemOnPage * 15, elemOnPage * 16);
+    }
+
     // BTN  stop active
-    if (countPage < 6) {
+    if (countPage < maxPages) {
         btnNext.classList.remove('button__round--incative');
     }
-    
+
     // BTN add active
     if (countPage == 1) {
         btnPrev.classList.add('button__round--incative');
@@ -275,13 +380,13 @@ function showPrev() {
     if (countPage == 1) {
         btnFirst.classList.add('button__round--incative');
     }
-    if (countPage < 6) {
+    if (countPage < maxPages) {
         btnLast.classList.remove('button__round--incative');
     }
 
 
     // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
+    for (let i = 0; i < elemOnPage; i++) {
 
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
         cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[newArrayPets[i]].name}</p>`);
@@ -311,7 +416,7 @@ function showFirst() {
     // BTNs STOP ACTIVE
     btnPrev.classList.add('button__round--incative');
     btnFirst.classList.add('button__round--incative');
-  
+
 
     // card content generator
     for (let i = 0; i < cardPets.length; i++) {
@@ -324,26 +429,7 @@ function showFirst() {
 };
 btnFirst.addEventListener('click', showFirst);
 
-// generator ON-LOAD section
-function cardGeneretor() {
-    // random generator
-    randomGenerator()
 
-    // zeroing
-    for (let i = 0; i < cardPetsActive.length; i++) {
-        cardPetsActive[i].innerHTML = '';
-    }
-
-    // card content generator
-    for (let i = 0; i < cardPets.length; i++) {
-
-        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<button class="button__pets">Learn more</button>`);
-        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<p>${petsData[arrayPets[i]].name}</p>`);
-        cardPetsActive[i].insertAdjacentHTML('afterbegin', `<img src="${petsData[arrayPets[i]].img}">`);
-        cardPetsActive[i].dataset.id = arrayPets[i];
-    }
-};
-cardGeneretor();
 
 
 
