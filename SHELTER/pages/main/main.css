@@ -652,6 +652,13 @@ h3 {
           align-items: center;
 }
 
+@media (max-width: 1279px) {
+  .slider__pets {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 @media (max-width: 767px) {
   .slider__pets {
     padding-top: 42px;
@@ -680,12 +687,12 @@ h3 {
 }
 
 .button__round--left {
-  margin-left: 40px;
+  /* margin-left: 40px; */
   background-image: url(../../assets/icons/Arrow.svg);
 }
 
 .button__round--right {
-  margin-right: 20px;
+  /* margin-right: 20px; */
   background-image: url(../../assets/icons/Arrow.svg);
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
@@ -693,10 +700,10 @@ h3 {
 
 @media (max-width: 1279px) {
   .button__round--left {
-    margin-left: 30px;
+    /* margin-left: 30px; */
   }
   .button__round--right {
-    margin-right: 30px;
+    /* margin-right: 30px; */
   }
 }
 
@@ -707,13 +714,17 @@ h3 {
   }
   .button__round--left {
     grid-area: B;
-    -ms-grid-column-align: center;
-        justify-self: center;
+    /* justify-self: center; */
+    position: relative;
+    left: 94px;
+    bottom: 1px;
   }
   .button__round--right {
     grid-area: C;
-    -ms-grid-column-align: center;
-        justify-self: center;
+    /* justify-self: center; */
+    position: relative;
+    left: -94px;
+    bottom: 1px;
   }
 }
 
@@ -1316,7 +1327,7 @@ h5 {
 
 @media (max-width: 767px) {
   .carousel-wrapper {
-    width: 270px;
+    width: 320px;
   }
 }
 
@@ -1331,13 +1342,13 @@ h5 {
 
 @media (max-width: 1279px) {
   .carousel {
-    left: -670px;
+    left: -620px;
   }
 }
 
 @media (max-width: 767px) {
   .carousel {
-    left: -270px;
+    left: -310px;
   }
 }
 
@@ -1362,8 +1373,8 @@ h5 {
 .transition-left {
   -webkit-animation-name: move-left;
           animation-name: move-left;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 @-webkit-keyframes move-right {
@@ -1387,8 +1398,78 @@ h5 {
 .transition-right {
   -webkit-animation-name: move-right;
           animation-name: move-right;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@media (max-width: 1279px) {
+  @-webkit-keyframes move-left {
+    from {
+      left: -620px;
+    }
+    to {
+      left: 50px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -620px;
+    }
+    to {
+      left: 50px;
+    }
+  }
+  @-webkit-keyframes move-right {
+    from {
+      left: -620px;
+    }
+    to {
+      left: -1290px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -620px;
+    }
+    to {
+      left: -1290px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  @-webkit-keyframes move-left {
+    from {
+      left: -310px;
+    }
+    to {
+      left: 50px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -310px;
+    }
+    to {
+      left: 50px;
+    }
+  }
+  @-webkit-keyframes move-right {
+    from {
+      left: -310px;
+    }
+    to {
+      left: -670px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -310px;
+    }
+    to {
+      left: -670px;
+    }
+  }
 }
 
 .js-hover {
