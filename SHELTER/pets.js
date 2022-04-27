@@ -92,6 +92,7 @@ const petsData = [{
 
 //        PAGINATION
 
+console.log('Не забывайте перезагружать страницу на контрольных точках! Это нужно для правильной работы пагинации')
 
 // RANDOM CARD GENERATOR
 
@@ -124,14 +125,15 @@ if (window.innerWidth <= 767) {
     elemOnPage = 3;
 }
 
+
 // random PETS generator ARR
 function randomGenerator() {
     // random generator
-    for (let i = 0; i < maxPages; i++) {
-        for (let i = 0; i < elemOnPage; i++) {
+    for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 8; i++) {
             randomStack.push(i);
         }
-        for (let i = 0; i < elemOnPage; i++) {
+        for (let i = 0; i < 8; i++) {
             random = randomStack.splice(Math.random() * (randomStack.length), 1)[0];
             arrayPets.push(random);
         }
