@@ -553,3 +553,13 @@ modalBtnClose.addEventListener('click', (event) => {
         popupAnimation()
     }
 });
+
+
+// BLACKOUT MOBILE FIX
+
+const appHeightFIX = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+};
+window.addEventListener('resize', appHeightFIX);
+appHeightFIX()
