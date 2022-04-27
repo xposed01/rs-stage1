@@ -187,6 +187,9 @@ function showNext() {
     if (countPage > 1) {
         btnFirst.classList.remove('button__round--incative');
     }
+    if (countPage == 6) {
+        btnLast.classList.add('button__round--incative');
+    }
 
     // card content generator
     for (let i = 0; i < cardPets.length; i++) {
