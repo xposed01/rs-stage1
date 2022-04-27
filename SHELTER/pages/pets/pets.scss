@@ -554,6 +554,7 @@ h3 {
   transition: all 0.2s ease;
   &:hover {
     cursor: pointer;
+    
   }
 }
 
@@ -639,4 +640,9 @@ h3 {
     letter-spacing: 0.06em;
     color: #000000;
   }
+}
+
+.js-hover {
+  background-color: #F1CDB3 !important;
+  transition: 0.3s;
 }

@@ -816,4 +816,10 @@ h3 {
   letter-spacing: 0.06em;
   color: #000000;
 }
+
+.js-hover {
+  background-color: #F1CDB3 !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
 /*# sourceMappingURL=pets.css.map */

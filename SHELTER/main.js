@@ -104,7 +104,6 @@ function popupAnimation() {
     // modal on/off
     let isModalOn = POPUP.style.display === 'flex';
     POPUP.style.display = isModalOn ? 'none' : 'flex';
-
     // stop scroll
     document.querySelector('body').classList.toggle('_lock');
     // blackout
@@ -340,3 +339,27 @@ function menuEventsOff() {
 menuBurger.addEventListener('click', menuEvents);
 blackoutWindow.addEventListener('click', menuEvents);
 navLinks.addEventListener('click', menuEventsOff);
+
+
+//   HOVER FIX
+
+const btnCLOSE = document.querySelector('.btn-close');
+const blackoutFIX = document.querySelector('.blackout-modal');
+
+blackoutFIX.addEventListener('mouseover', () => {
+    document.querySelector('.btn-close').classList.add('js-hover');
+});
+
+blackoutFIX.addEventListener('mouseout', () => {
+    document.querySelector('.btn-close').classList.remove('js-hover');
+});
+
+// btn CLOSE FIX
+
+const modalBtnClose = document.querySelector('.pets__modal');
+
+modalBtnClose.addEventListener('click', (event) => {
+    if (event.target.className === 'btn-close button__round') {
+        popupAnimation()
+    }
+});

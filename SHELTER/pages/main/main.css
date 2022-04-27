@@ -1261,6 +1261,7 @@ h5 {
 }
 
 .pets__modal .btn-close {
+  z-index: 20;
   position: fixed;
   right: -8%;
   top: -5%;
@@ -1388,5 +1389,11 @@ h5 {
           animation-name: move-right;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
+}
+
+.js-hover {
+  background-color: #F1CDB3 !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 /*# sourceMappingURL=main.css.map */
